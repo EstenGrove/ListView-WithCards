@@ -1,0 +1,73 @@
+@import '../sass/variables';
+@import '../sass/mixins';
+
+.ResidentSearch {
+    width: 80vw;
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    margin-bottom: 4rem;
+    z-index: 1;
+
+
+
+    &_label {
+        width: 100%;
+        font-size: 2rem;
+        text-align: center;
+        font-weight: 600;
+        color: map-get($map: $colors, $key: 'mainBlackBlue');
+    }
+
+    &_dropdown {
+        width: 100%;
+        height: auto;
+        font-family: map-get($map: $fonts, $key: 'mainSans');
+        @include row_start_center;
+
+        &_input {
+            width: 100%;
+            height: 4rem;
+            padding-left: 1rem;
+            @include row_start_center;
+            border-radius: .5rem 0 0 .5rem;
+            border: none;
+            outline: none;
+            background-color: #ffffff;
+            font-family: map-get($map: $fonts, $key: 'mainSans');
+
+            &::-webkit-input-placeholder {
+                font-size: 1.4rem;
+                font-weight: 400;
+                color: map-get($map: $blueGreys, $key: 'subheadings');
+            }
+
+            &:-ms-input-placeholder {
+                font-size: 1.4rem;
+                font-weight: 400;
+                color: map-get($map: $blueGreys, $key: 'subheadings');
+            }
+
+            &::-ms-input-placeholder {
+                font-size: 1.4rem;
+                font-weight: 400;
+                color: map-get($map: $blueGreys, $key: 'subheadings');
+            }
+
+            &::placeholder {
+                font-size: 1.4rem;
+                font-weight: 400;
+                color: map-get($map: $blueGreys, $key: 'subheadings');
+            }
+        }
+
+        &_list {
+            font-family: map-get($map: $fonts, $key: 'mainSans');
+            font-size: 1.3rem;
+        }
+
+        &_btn {
+            width: auto;
+        }
+    }
+}

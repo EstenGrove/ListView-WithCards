@@ -1,0 +1,10 @@
+@import '../sass/variables';
+@import '../sass/mixins';
+
+.LoginPage {
+    @include fill_container;
+    padding-top: 12rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+}

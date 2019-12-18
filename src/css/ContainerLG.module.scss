@@ -1,0 +1,11 @@
+@import '../sass/variables';
+@import '../sass/mixins';
+
+.ContainerLG {
+    margin-top: 2rem;
+    @include fill_container;
+    padding: 1rem;
+    background-color: map-get($map: $colors, $key: 'mainGrey');
+    border-radius: .5rem;
+
+}

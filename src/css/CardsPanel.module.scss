@@ -1,0 +1,7 @@
+@import '../sass/variables';
+@import '../sass/mixins';
+
+.CardsPanel {
+    @include fill_container;
+    padding: 4rem 2rem;
+}

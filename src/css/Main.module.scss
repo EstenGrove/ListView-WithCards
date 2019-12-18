@@ -1,0 +1,7 @@
+ @import '../sass/variables';
+ @import '../sass/mixins';
+
+ .Main {
+     @include fill_container;
+     padding: 4rem 2rem;
+ }

@@ -1,0 +1,269 @@
+@import '../sass/variables';
+@import '../sass/mixins';
+
+// THIS IS CLONED NAVBAR!!!!
+
+.Navbar {
+    display: block;
+    position: fixed;
+    width: 100%;
+    max-width: 100vw;
+    height: 6rem;
+    font-family: map-get($map: $fonts, $key: 'mainSans');
+    background-color: #ffffff;
+    -webkit-box-shadow: map-get($map: $shadows, $key: 'medSubtle');
+    box-shadow: map-get($map: $shadows, $key: 'medSubtle');
+    z-index: 8;
+
+    &_list {
+        @include fill_container;
+        padding: 1rem 2rem;
+        list-style: none;
+        @include row_start_center;
+
+        &_mobile {
+            display: none;
+
+            &_icon {
+                width: 2rem;
+                height: 2rem;
+                fill: map-get($map: $colors, $key: 'mainBlackBlue');
+            }
+        }
+
+        &_item,
+        &_logo,
+        &_alert,
+        &_item>a,
+        &_logo>a {
+            font-size: 1.4rem;
+            font-family: map-get($map: $fonts, $key: 'mainSans');
+            margin-right: 2rem;
+            color: map-get($map: $colors, $key: 'mainBlackBlue');
+            text-decoration: none;
+
+
+            &:hover {
+                cursor: pointer;
+                color: map-get($map: $colors, $key: 'main');
+            }
+
+            &_icon {
+                @include col_center_all;
+                width: 2rem;
+                height: 2rem;
+                fill: map-get($map: $colors, $key: 'mainBlackBlue');
+                ;
+                margin-left: auto;
+
+                &:hover {
+                    cursor: pointer;
+                    fill: map-get($map: $colors, $key: 'mainRed');
+                }
+            }
+        }
+
+        &_alert {
+            position: relative;
+            margin-left: auto;
+
+            &_count {
+                position: absolute;
+                display: block;
+                bottom: 1rem;
+                left: 1rem;
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 50%;
+                background-color: map-get($map: $colors, $key: 'mainRed');
+                color: #ffffff;
+
+                &_number {
+                    font-size: 1rem;
+                    text-align: center;
+                }
+            }
+        }
+
+        &_logo {
+
+            &:hover {
+                cursor: pointer;
+                color: map-get($map: $colors, $key: 'mainBlue');
+            }
+        }
+
+
+
+        &_user {
+            position: relative;
+            border-radius: 50%;
+            background-color: map-get($map: $blueGreys, $key: 'subheadings');
+            padding: 1rem;
+            @include col_center_all;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &_initials {
+                color: #ffffff;
+                font-size: 1.4rem;
+                text-align: center;
+            }
+
+            &_dropdown {
+                position: absolute;
+                display: block;
+                top: 4rem;
+                right: 0;
+                width: 20rem;
+                height: auto;
+                border-radius: .5rem;
+                background-color: #ffffff;
+                -webkit-box-shadow: map-get($map: $shadows, $key: 'raised');
+                box-shadow: map-get($map: $shadows, $key: 'raised');
+                z-index: 20;
+
+                &_list {
+                    @include fill_container;
+                    padding: 2rem 0;
+                    list-style: none;
+
+                    &_item,
+                    &_alert,
+                    &_logout,
+                    &_item>a {
+                        width: 100%;
+                        padding: 1rem;
+                        font-size: 1.4rem;
+                        font-weight: 600;
+                        color: map-get($map: $colors, $key: 'mainBlackBlue');
+                        text-decoration: none;
+
+                        &:hover {
+                            cursor: pointer;
+                            color: map-get($map: $colors, $key: 'main');
+                            background-color: map-get($map: $blueGreys, $key: 'lightened');
+                        }
+
+                        &_icon {
+                            width: 1.5rem;
+                            height: 1.5rem;
+                            fill: map-get($map: $blueGreys, $key: 'subheadings');
+
+                            &:hover {
+                                cursor: pointer;
+                                fill: map-get($map: $colors, $key: 'mainRed');
+                            }
+                        }
+                    }
+
+                    &_alert {
+                        width: 100%;
+                        @include row_start_center;
+                        text-decoration: none;
+                        color: map-get($map: $blueGreys, $key: 'headings');
+
+                        &_icon {
+                            margin-left: auto;
+                        }
+
+                        &:hover {
+                            cursor: pointer;
+                            color: map-get($map: $colors, $key: 'mainRed');
+                        }
+
+                        &:hover &_icon {
+                            fill: map-get($map: $colors, $key: 'mainRed');
+                            cursor: pointer;
+                        }
+
+                        &_text {
+                            width: 100%;
+                            margin-left: 1rem;
+                            text-decoration: none;
+                            color: map-get($map: $blueGreys, $key: 'headings');
+                        }
+                    }
+
+
+
+                    &_logout_btn {
+                        margin-top: 2rem;
+                        padding: 1rem 2rem;
+                        border-radius: .5rem;
+                        font-size: 1.4rem;
+                        border: none;
+                        outline: none;
+                        border: 1px solid map-get($map: $colors, $key: 'mainGrey');
+                        color: map-get($map: $colors, $key: 'mainRed');
+
+                        &:hover {
+                            background-color: map-get($map: $colors, $key: 'mainRed');
+                            color: #ffffff;
+                            cursor: pointer;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .Navbar {
+
+
+        &_list {
+
+            &_item {
+                display: none;
+            }
+
+            &_mobile {
+                display: inherit;
+                position: relative;
+
+                &_dropdown {
+                    position: absolute;
+                    top: 2rem;
+                    left: 0;
+                    width: 15rem;
+                    height: 20rem;
+                    border-radius: .5rem;
+                    -webkit-box-shadow: map-get($map: $shadows, $key: 'raised');
+                    box-shadow: map-get($map: $shadows, $key: 'raised');
+                    background-color: #ffffff;
+
+                    &_list {
+                        padding-top: 1rem;
+                        width: 100%;
+                        list-style: none;
+                        font-size: 1.3rem;
+                        color: map-get($map: $colors, $key: 'mainBlackBlue');
+
+                        &_item {
+                            padding: 1rem 2rem;
+
+                            &:hover {
+                                cursor: pointer;
+                                color: map-get($map: $colors, $key: 'main');
+                                background-color: map-get($map: $blueGreys, $key: 'lightened');
+                            }
+                        }
+                    }
+
+                    &_heading {
+                        padding: 1rem;
+                        font-weight: 800;
+                        font-size: 1.5rem;
+                        color: map-get($map: $colors, $key: 'mainBlackBlue');
+                    }
+                }
+
+            }
+        }
+    }
+}

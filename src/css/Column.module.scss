@@ -1,0 +1,15 @@
+@import '../sass/variables';
+@import '../sass/mixins';
+
+.Column {
+    width: 20rem;
+    height: 100%;
+    padding: 1rem;
+    border: 1px solid map-get($map: $colors, $key: 'mainBlackBlue');
+    border-radius: .5rem;
+    @include base_flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}

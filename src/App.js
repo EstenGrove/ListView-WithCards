@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.scss";
+import { Router, Route, Switch } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import { AuthProvider } from "./state/AuthContext";
+import { GlobalStateProvider } from "./state/GlobalStateContext";
+import ProtectedRoute from "./auth/ProtectedRoute";
+import NonAuthenticatedView from "./views/NonAuthenticatedView";
+import AuthenticatedView from "./views/AuthenticatedView";
+import PageNotFound from "./pages/PageNotFound";
+
+export const history = createBrowserHistory();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router history={history}>
+      <AuthProvider>
+        <GlobalStateProvider>
+          <div className="App">
+            <Switch>
+              <Route exact path="/" component={NonAuthenticatedView} />
+              <ProtectedRoute path="/dashboard" component={AuthenticatedView} />
+              <Route component={PageNotFound} />
+            </Switch>
+          </div>
+        </GlobalStateProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 
