@@ -17,8 +17,6 @@ const ResidentSearch = ({
   selectResident,
   loadResident
 }) => {
-  console.log("residents", residents);
-
   if (isEmptyArray(residents)) {
     return <Spinner />;
   }

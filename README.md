@@ -9,11 +9,11 @@ The following repo is the WIP build for the "Daily Cards" view that was discusse
 #### **Add Daily Category Cards View**
 
 - [ ] _Enable:_ Add new "Category Cards" view
-- [ ] _Enable:_ Create <CategoryCard/> component
-  - Each card covers a single ADL category
-  - Each card has a "task summary" panel for the category
-  - Each card routes to the current ListView for more detailed task tracking
-  - Each card should be collapsible/expandable (consider UI jank)
+- [x] _Enable:_ Create <DailyCategoryCard/> component
+  - [x] Each card covers a single ADL category
+  - [x] Each card has a "task summary" panel for the category
+  - [x] Each card routes to the current ListView for more detailed task tracking
+  - [x] Each card should be collapsible/expandable (consider UI jank)
 
 #### **Sub-Task Tracking**
 

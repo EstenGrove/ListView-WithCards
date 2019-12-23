@@ -66,10 +66,6 @@ const populateState = (data, state) => {
 
 // handles initial hydration (ie fetchResidentAndUserData fn())
 const hydrateState = (data, state) => {
-  console.group("Hydrate State");
-  console.log("data", data);
-  console.log("state", state);
-  console.groupEnd();
   const stateRefresh = {
     ...state,
     currentUser: {

@@ -10,14 +10,14 @@ import { isEmptyArray } from "../helpers/utils_types";
 import Dashboard from "../components/Dashboard";
 import Navbar from "../components/Navbar";
 import ResidentSearch from "../components/ResidentSearch";
-import Spinner from "../components/Spinner";
 
 const AuthenticatedView = () => {
   const { authData } = useContext(AuthContext);
   const { state, dispatch } = useContext(GlobalStateContext);
 
+  // gets residents and user profile and sets state
   const fetchInitialResource = async () => {
-    const { token, username, password } = authData;
+    const { token, username } = authData;
     const residentsData = await getResidentsByUserEmail(token, username);
     const profileData = await getUserProfileByEmail(token, username);
 
@@ -40,7 +40,15 @@ const AuthenticatedView = () => {
   };
 
   useEffect(() => {
+    let isMounted = true; // prevents memory leaks
+    if (!isMounted) {
+      return;
+    }
     fetchInitialResource();
+
+    return () => {
+      isMounted = false;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
